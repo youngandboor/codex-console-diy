@@ -7,7 +7,7 @@ until USB recognition is proven on the actual ChatGPT Desktop build.
 
 | Item | Quantity | Notes |
 | --- | ---: | --- |
-| ESP32-S3-DevKitC-1-N8 | 1 | Use the native USB port for HID; no PSRAM required |
+| ESP32-S3-DevKitC-1-N8R8 | 1 | Purchased variant; use native USB for HID, PSRAM is optional for this milestone |
 | Data-capable USB cable | 1 | USB-C or Micro-B according to the board revision |
 | Momentary button | 1 | Optional; the firmware currently uses the BOOT button |
 | Breadboard/jumpers | 1 set | For later encoder and joystick checks |
@@ -41,4 +41,3 @@ assembly availability with the PCB supplier before schematic capture.
 
 Use a 500 mA USB input-current limit for the first PCB. LED firmware must cap
 brightness and estimated current so the system remains stable while charging.
-
