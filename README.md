@@ -45,6 +45,7 @@ Do not reuse GPIO0 for a production key because it is a boot strapping pin.
 - `src/main.cpp`: Phase 0 orchestration only.
 - `docs/hardware-v1.md`: interaction layout, electrical architecture, and PCB
   gates.
+- `docs/development-plan.zh-CN.md`: parallel firmware, product, and PCB plan.
 - `docs/purchase-checklist.zh-CN.md`: staged beginner purchase checklist and
   order gates.
 - `docs/validation.md`: tests required before moving from breadboard to PCB.
