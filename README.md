@@ -48,6 +48,8 @@ Do not reuse GPIO0 for a production key because it is a boot strapping pin.
 - `docs/development-plan.zh-CN.md`: parallel firmware, product, and PCB plan.
 - `docs/purchase-checklist.zh-CN.md`: staged beginner purchase checklist and
   order gates.
+- `docs/wireless-audio-options.zh-CN.md`: 2.4 GHz dongle and BLE Audio tradeoff
+  analysis.
 - `docs/validation.md`: tests required before moving from breadboard to PCB.
 
 The original Core2 project remains a read-only behavioral reference in the
