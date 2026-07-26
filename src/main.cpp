@@ -9,7 +9,7 @@
 
 namespace {
 
-constexpr uint8_t kSmokeButtonPin = 0;
+constexpr uint8_t kBenchButtonPin = 4;
 constexpr uint32_t kDebounceMs = 12;
 
 QueueHandle_t incomingQueue = nullptr;
@@ -24,7 +24,7 @@ uint32_t changedAtMs = 0;
 codex::TransportKind buttonTransport = codex::TransportKind::kBle;
 
 void updateSmokeButton() {
-  const bool pressed = digitalRead(kSmokeButtonPin) == LOW;
+  const bool pressed = digitalRead(kBenchButtonPin) == LOW;
   if (pressed != sampledButton) {
     sampledButton = pressed;
     changedAtMs = millis();
@@ -47,7 +47,7 @@ void updateSmokeButton() {
 
 void setup() {
   Serial.begin(115200);
-  pinMode(kSmokeButtonPin, INPUT_PULLUP);
+  pinMode(kBenchButtonPin, INPUT_PULLUP);
 
   incomingQueue = xQueueCreate(12, sizeof(codex::IncomingReport));
   if (incomingQueue == nullptr) {
