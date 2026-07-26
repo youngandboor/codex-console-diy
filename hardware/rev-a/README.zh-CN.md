@@ -68,6 +68,8 @@ flowchart LR
 - `mechanical-placement.kicad_pcb`：四层 PCB 板框、安装孔、控件包络和天线/电池区的
   KiCad 机械基线；它不是已布线生产板。
 - `mechanical-placement-preview.png`：KiCad 机械基线的独立导出预览。
+- `lceda/Codex Console Rev A.eprj2`：嘉立创 EDA 专业版 V3.2.166 的正式本地工程；
+  原理图和 PCB 将以此为后续主设计文件。
 - `net-map.csv`：GPIO、矩阵和主要网络分配。
 - `pcb-rules.md`：四层板、电源、USB、天线和可制造性约束。
 - `bom.csv`：Rev A 关键电气与机械 BOM；小阻容在原理图完成时补齐数值。
