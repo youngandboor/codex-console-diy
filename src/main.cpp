@@ -9,8 +9,22 @@
 
 namespace {
 
-constexpr uint8_t kBenchButtonPin = 4;
 constexpr uint32_t kDebounceMs = 12;
+
+struct BenchButton {
+  uint8_t pin;
+  const char* keyId;
+  const char* label;
+  bool stable = false;
+  bool sampled = false;
+  uint32_t changedAtMs = 0;
+  codex::TransportKind transport = codex::TransportKind::kBle;
+};
+
+BenchButton benchButtons[] = {
+    {4, "AG00", "Agent 1"},
+    {5, "AG01", "Agent 2"},
+};
 
 QueueHandle_t incomingQueue = nullptr;
 codex::BleTransport ble;
@@ -18,36 +32,41 @@ codex::UsbTransport usb;
 codex::TransportRouter router(ble, usb);
 codex::ProtocolEngine protocol;
 
-bool stableButton = false;
-bool sampledButton = false;
-uint32_t changedAtMs = 0;
-codex::TransportKind buttonTransport = codex::TransportKind::kBle;
-
-void updateSmokeButton() {
-  const bool pressed = digitalRead(kBenchButtonPin) == LOW;
-  if (pressed != sampledButton) {
-    sampledButton = pressed;
-    changedAtMs = millis();
+void updateBenchButton(BenchButton& button) {
+  const bool pressed = digitalRead(button.pin) == LOW;
+  if (pressed != button.sampled) {
+    button.sampled = pressed;
+    button.changedAtMs = millis();
   }
-  if (sampledButton == stableButton || millis() - changedAtMs < kDebounceMs) {
+  if (button.sampled == button.stable ||
+      millis() - button.changedAtMs < kDebounceMs) {
     return;
   }
 
-  stableButton = sampledButton;
-  if (stableButton) {
-    buttonTransport = router.active();
+  button.stable = button.sampled;
+  if (button.stable) {
+    button.transport = router.active();
   }
-  const codex::TransportKind target = buttonTransport;
-  protocol.sendKey(target, "AG00", stableButton ? 1 : 0, 0, router);
-  Serial.printf("Agent 1 %s over %s\n", stableButton ? "down" : "up",
-                target == codex::TransportKind::kUsb ? "USB" : "BLE");
+  protocol.sendKey(button.transport, button.keyId, button.stable ? 1 : 0, 0,
+                   router);
+  Serial.printf("%s %s over %s\n", button.label,
+                button.stable ? "down" : "up",
+                button.transport == codex::TransportKind::kUsb ? "USB" : "BLE");
+}
+
+void updateBenchButtons() {
+  for (BenchButton& button : benchButtons) {
+    updateBenchButton(button);
+  }
 }
 
 }  // namespace
 
 void setup() {
   Serial.begin(115200);
-  pinMode(kBenchButtonPin, INPUT_PULLUP);
+  for (const BenchButton& button : benchButtons) {
+    pinMode(button.pin, INPUT_PULLUP);
+  }
 
   incomingQueue = xQueueCreate(12, sizeof(codex::IncomingReport));
   if (incomingQueue == nullptr) {
@@ -69,6 +88,6 @@ void loop() {
     protocol.onReport(report, router);
   }
 
-  updateSmokeButton();
+  updateBenchButtons();
   delay(2);
 }

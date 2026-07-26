@@ -19,7 +19,7 @@ Phase 0 provides:
 - BLE and native USB HID transports on ESP32-S3;
 - USB-first transport routing, with BLE fallback;
 - the observed Codex RPC methods and six Agent status values;
-- a breadboard smoke input on GPIO4 using an external button as Agent 1;
+- two breadboard inputs on GPIO4/GPIO5 using external Agent 1/Agent 2 buttons;
 - native unit tests for framing, fragmentation, validation, and recovery.
 
 Physical key scanning, RGB output, the joystick, encoder, fuel gauge, and sleep
@@ -35,10 +35,11 @@ pio run -e esp32-s3-devkitc-1
 ```
 
 For the development-board smoke test, use an ESP32-S3 DevKitC-1 native USB
-port. Connect a normally-open button between GPIO4 and GND; pressing it sends
-Agent 1 press/release events. The firmware enables GPIO4's internal pull-up, so
-no external resistor is required. The earlier GPIO0/BOOT bench input was only
-used for first-board validation and is no longer used as a user control.
+port. Connect normally-open buttons from GPIO4 and GPIO5 to a shared GND;
+pressing them sends Agent 1 and Agent 2 events respectively. The firmware
+enables the GPIO internal pull-ups, so no external resistors are required. The
+earlier GPIO0/BOOT bench input was only used for first-board validation and is
+no longer used as a user control.
 
 ## Project boundaries
 

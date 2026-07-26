@@ -20,6 +20,7 @@ UART 和原生 USB 接口均为 Micro-USB（Micro-B），不是 USB-C。
 | ChatGPT Desktop 识别 | 通过 | 用户确认应用中出现 Codex Micro |
 | BOOT 按键触发 Agent 1 | 通过 | 快速双击后 ChatGPT 切换到对应任务并回到前台；使用 GPIO0，仅用于开发板台架 |
 | 外接 GPIO4 按键 | 通过 | 常开按键接在 GPIO4 与 GND 之间；双击后 ChatGPT 正确回到前台 |
+| 外接 GPIO5 按键 | 通过 | Agent 2 单击切换会话，双击将 ChatGPT 带到前台 |
 | BLE 配对与识别 | 通过 | macOS 显示 BLE 连接、VID/PID 正确、模拟电量 100% |
 | BLE 外接按键 | 通过 | 仅通过 UART 口供电，原生 USB HID 断开；双击后 ChatGPT 正确回到前台 |
 | USB/BLE 切换 | 通过 | 两接口同时连接时按键日志显示 USB；拔掉原生 USB 后自动显示 BLE |
@@ -45,3 +46,8 @@ macOS 确认原生 USB Codex Micro 不存在，同时 BLE Codex Micro 已连接�
 `Agent 1 down/up over USB`，证明 BLE 在线时原生 USB 具有优先级。随后保留 UART
 供电并拔掉原生 USB，日志显示 `Agent 1 down/up over BLE`，证明无需重启即可自动
 回退到 BLE。开发板接口类型只影响当前验证线材，不改变最终 PCB 使用 USB-C 的规划。
+
+双按键验证将 GPIO4/GPIO5 分别映射为 Agent 1/Agent 2，并为每颗按键独立保存采样、
+消抖和传输状态。UART 日志确认两颗按键各自生成完整的 down/up 事件；同时按住和
+松开时两组事件均被接收，没有串键。ChatGPT 界面进一步确认 GPIO5 按键单击切换
+Agent 2 会话，双击切换会话并将 ChatGPT 带到前台。
