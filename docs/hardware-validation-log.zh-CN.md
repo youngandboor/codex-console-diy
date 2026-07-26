@@ -19,7 +19,8 @@
 | ChatGPT Desktop 识别 | 通过 | 用户确认应用中出现 Codex Micro |
 | BOOT 按键触发 Agent 1 | 通过 | 快速双击后 ChatGPT 切换到对应任务并回到前台；使用 GPIO0，仅用于开发板台架 |
 | 外接 GPIO4 按键 | 通过 | 常开按键接在 GPIO4 与 GND 之间；双击后 ChatGPT 正确回到前台 |
-| BLE 配对与识别 | 待测 | USB 单控件验证后进行 |
+| BLE 配对与识别 | 通过 | macOS 显示 BLE 连接、VID/PID 正确、模拟电量 100% |
+| BLE 外接按键 | 通过 | 仅通过 UART 口供电，原生 USB HID 断开；双击后 ChatGPT 正确回到前台 |
 | USB/BLE 切换 | 待测 | 两种独立传输通过后进行 |
 
 首次通过手动 `BOOT + RST/EN` 进入下载模式，然后使用原生 USB Serial/JTAG 端口
@@ -33,3 +34,8 @@ Agent 1 的单击行为不会主动将 ChatGPT 带到前台，首次测试因此
 连接失效。ChatGPT 日志表现为 `could not read from HID device` 和
 `transport-unavailable`。断电后将线移至 GPIO4，再次双击验证通过。后续接线检查必须
 同时核对丝印和针脚位置，不能只按相邻顺序计数。
+
+BLE 验证时将数据线从原生 USB 口移至 UART 口，仅由 UART 口为开发板供电。
+macOS 确认原生 USB Codex Micro 不存在，同时 BLE Codex Micro 已连接，地址为开发板
+蓝牙地址，VID/PID 为 `0x303A` / `0x8360`。外接 GPIO4 按键双击后 ChatGPT 正确
+回到前台，确认事件未借道原生 USB。
