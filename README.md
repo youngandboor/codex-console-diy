@@ -50,6 +50,8 @@ Do not reuse GPIO0 for a production key because it is a boot strapping pin.
   order gates.
 - `docs/wireless-audio-options.zh-CN.md`: 2.4 GHz dongle and BLE Audio tradeoff
   analysis.
+- `docs/hardware-validation-log.zh-CN.md`: dated physical-hardware validation
+  results.
 - `docs/validation.md`: tests required before moving from breadboard to PCB.
 
 The original Core2 project remains a read-only behavioral reference in the
