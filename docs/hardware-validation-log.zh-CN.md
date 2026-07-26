@@ -2,7 +2,8 @@
 
 ## 2026-07-26：ESP32-S3-DevKitC-1-N8R8 首次上板
 
-测试环境：macOS、ESP32-S3-DevKitC-1-N8R8、原生 USB 数据连接。
+测试环境：macOS、ESP32-S3-DevKitC-1-N8R8、原生 USB 数据连接。该开发板的
+UART 和原生 USB 接口均为 Micro-USB（Micro-B），不是 USB-C。
 
 | 项目 | 结果 | 记录 |
 | --- | --- | --- |
@@ -21,7 +22,7 @@
 | 外接 GPIO4 按键 | 通过 | 常开按键接在 GPIO4 与 GND 之间；双击后 ChatGPT 正确回到前台 |
 | BLE 配对与识别 | 通过 | macOS 显示 BLE 连接、VID/PID 正确、模拟电量 100% |
 | BLE 外接按键 | 通过 | 仅通过 UART 口供电，原生 USB HID 断开；双击后 ChatGPT 正确回到前台 |
-| USB/BLE 切换 | 待测 | 两种独立传输通过后进行 |
+| USB/BLE 切换 | 通过 | 两接口同时连接时按键日志显示 USB；拔掉原生 USB 后自动显示 BLE |
 
 首次通过手动 `BOOT + RST/EN` 进入下载模式，然后使用原生 USB Serial/JTAG 端口
 烧录。烧录完成后单独按 `RST/EN` 启动应用，设备重新枚举为 Codex Micro。
@@ -39,3 +40,8 @@ BLE 验证时将数据线从原生 USB 口移至 UART 口，仅由 UART 口为�
 macOS 确认原生 USB Codex Micro 不存在，同时 BLE Codex Micro 已连接，地址为开发板
 蓝牙地址，VID/PID 为 `0x303A` / `0x8360`。外接 GPIO4 按键双击后 ChatGPT 正确
 回到前台，确认事件未借道原生 USB。
+
+传输切换验证时同时连接 UART 和原生 USB。UART 串口日志对同一外接按键明确显示
+`Agent 1 down/up over USB`，证明 BLE 在线时原生 USB 具有优先级。随后保留 UART
+供电并拔掉原生 USB，日志显示 `Agent 1 down/up over BLE`，证明无需重启即可自动
+回退到 BLE。开发板接口类型只影响当前验证线材，不改变最终 PCB 使用 USB-C 的规划。
