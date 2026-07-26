@@ -103,3 +103,8 @@ Do not order the integrated battery PCB until all of these pass on a DevKitC-1:
 - disconnect during a held key produces a clean release after reconnection;
 - six Agent status colors are received and replayed reliably;
 - native USB is revalidated after every descriptor or SDK change.
+
+For Alpha Rev A, the user has explicitly accepted an integrated-board fast track after USB, BLE,
+two-button input, and USB/BLE priority were validated. Matrix, RGB, encoder, joystick, and battery
+validation may therefore happen on the first five integrated boards. This exception does not waive
+ERC, DRC, footprint, USB-impedance, antenna-keepout, battery-polarity, or staged-power-up reviews.

@@ -56,6 +56,8 @@ no longer used as a user control.
 - `docs/hardware-validation-log.zh-CN.md`: dated physical-hardware validation
   results.
 - `docs/validation.md`: tests required before moving from breadboard to PCB.
+- `hardware/rev-a`: integrated Alpha PCB, enclosure, placement, BOM, and 1:1
+  mechanical design baseline.
 
 The original Core2 project remains a read-only behavioral reference in the
 sibling `codex-micro-4-core2` directory.

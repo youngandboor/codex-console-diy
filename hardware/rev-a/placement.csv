@@ -1,0 +1,25 @@
+ref,type,x_mm,y_mm,rotation_deg,top_envelope_mm,notes
+SW1,MX_AGENT_1,18.00,20.00,0,18x18,1U frosted keycap
+SW2,MX_AGENT_2,37.05,20.00,0,18x18,1U frosted keycap
+SW3,MX_AGENT_3,56.10,20.00,0,18x18,1U frosted keycap
+SW4,MX_AGENT_4,18.00,39.05,0,18x18,1U frosted keycap
+SW5,MX_AGENT_5,37.05,39.05,0,18x18,1U frosted keycap
+SW6,MX_AGENT_6,56.10,39.05,0,18x18,1U frosted keycap
+SW7,MX_FAST,18.00,65.00,0,18x18,1U charcoal keycap
+SW8,MX_APPROVE,37.05,65.00,0,18x18,1U charcoal keycap
+SW9,MX_DECLINE,56.10,65.00,0,18x18,1U charcoal keycap
+SW10,MX_FORK,75.15,65.00,0,18x18,1U charcoal keycap
+SW11,MX_MIC_2U,27.53,89.00,0,37x18,2U charcoal keycap and PCB stabilizer
+SW12,MX_SEND,56.10,89.00,0,18x18,1U charcoal keycap
+ENC1,EC11E15244G1,119.00,22.00,0,D20 knob,7.2 mm panel shaft hole
+JOY1,RKJXV122400R,119.00,60.00,0,28x28 cap travel,22 mm panel opening
+TOUCH1,COMM_PAIR_PAD,119.00,94.00,0,22x16,1.0 mm plastic touch window
+J1,USB_C,38.00,3.00,180,16x9,rear edge centered at x 38
+SW_PWR,POWER_SLIDE,136.00,3.00,180,14x6,rear edge
+U1,ESP32_S3_WROOM_1_N8R8,85.00,12.50,0,18x25,module antenna faces rear edge
+BAT1,LIPO_604070,45.00,88.00,0,70x40x7,lower battery layer centered here
+H1,M3_MOUNT,6.00,6.00,0,D3.2,case and plate mount
+H2,M3_MOUNT,148.00,6.00,0,D3.2,case and plate mount
+H3,M3_MOUNT,6.00,110.00,0,D3.2,case and plate mount
+H4,M3_MOUNT,148.00,110.00,0,D3.2,case and plate mount
+H5,M3_MOUNT,95.00,110.00,0,D3.2,center support

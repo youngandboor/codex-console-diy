@@ -1,0 +1,32 @@
+group,ref,qty,preferred_part,package_or_size,populate_rev_a,selection_note
+MCU,U1,1,ESP32-S3-WROOM-1-N8R8,Module,Yes,Matches validated N8R8 platform
+USB,J1,1,HRO TYPE-C-31-M-12,USB-C 16-pin,Yes,USB 2.0 device only
+USB,U7,1,TPD2EUSB30DRTR,SOT-9X3 DRT 3-pin,Yes,Low-capacitance D+/D- ESD protection
+USB,R_CC1 R_CC2,2,5.1 kOhm 1%,0402,Yes,USB-C device Rd
+USB,R_USB1 R_USB2,2,22 Ohm 1%,0402,Yes,Place near ESP32 module
+Power,U2,1,BQ24074RGTR,VQFN-16 3x3,Yes,1-cell charger with PowerPath
+Power,U3,1,TPS63070RNMR,VQFN-HR-15 3x2.5,Yes,3.3 V buck-boost with current headroom
+Power,U4,1,TPS61023DRLR,SOT-563-6,Yes,Enable-controlled 5 V RGB boost
+Power,U5,1,MAX17048G+T10,TDFN-8 2x2,Yes,Single-cell fuel gauge
+Power,J2,1,JST-PH 2.0 right-angle,2-pin,Yes,Verify pack polarity before insertion
+Power,SW_PWR,1,JS102011SAQN,SPDT slide,Yes,Controls regulator enables not raw battery current
+Power,BAT1,1,Protected LiPo 604070,70x40x7 max,External,1500-2000 mAh with JST-PH 2.0
+RGB,U6,1,SN74AHCT1G125DBVR,SOT-23-5,Yes,3.3 V to 5 V data buffer
+RGB,LED1-LED20,20,SK6812MINI-E,3.5x3.5 reverse mount,Yes,12 key plus 8 perimeter pixels
+RGB,R_RGB,1,330 Ohm,0402,Yes,Series resistor at buffer output
+Keys,HS1-HS12,12,Kailh MX hot-swap socket,MX socket,Yes,Use verified KiCad footprint
+Keys,SW1-SW12,12,Gateron G Pro 3.0 Brown,MX 5-pin,External,Transparent top tactile default; PCB footprint supports 3/5-pin MX
+Keys,D1-D14,14,1N4148W,SOD-123,Yes,One per populated matrix control
+Keys,D15-D16,2,1N4148W,SOD-123,No,Spare matrix positions
+Encoder,ENC1,1,EC11E15244G1,THT 11 mm,Yes,30 detents 15 pulses push switch 20 mm D shaft
+Encoder,KNOB1,1,20 mm aluminum knob,D-shaft,External,Final color after case sample
+Joystick,JOY1,1,RKJXV122400R,THT 18.2x21.7,Yes,Current standard Alps part with center push
+Touch,TOUCH1,1,PCB copper electrode,22x16,Yes,510 Ohm series and ESD footprint
+Audio,MIC1,1,MP34DT06JTR,HCLGA-4,No,PDM microphone option only; USB Audio not enabled
+Mechanical,PLATE1,1,Black FR4 switch plate,1.5 mm,External,MX plate and control openings
+Mechanical,STAB1,1,2U screw-in stabilizer,PCB mount,External,Mic key only
+Keycaps,KC_AGENT,6,Frosted translucent XDA blank,1U,External,Agent status light
+Keycaps,KC_CMD,5,Charcoal XDA PBT blank,1U,External,UV printed or laser marked
+Keycaps,KC_MIC,1,Charcoal XDA PBT blank,2U,External,Mic legend
+Mechanical,CASE1,1,3D printed ASA or PETG,154x116x18,External,Two-piece enclosure plus touch insert
+Mechanical,FASTENERS,1,M3 heat-set inserts and screws,M3,External,Five PCB supports

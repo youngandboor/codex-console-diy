@@ -9,7 +9,7 @@ until USB recognition is proven on the actual ChatGPT Desktop build.
 | --- | ---: | --- |
 | ESP32-S3-DevKitC-1-N8R8 | 1 | Purchased variant; use native USB for HID, PSRAM is optional for this milestone |
 | Data-capable USB cable | 1 | USB-C or Micro-B according to the board revision |
-| Momentary button | 1 | Optional; the firmware currently uses the BOOT button |
+| Momentary button | 2 | Current bench firmware maps GPIO4/GPIO5 to Agent 1/Agent 2 |
 | Breadboard/jumpers | 1 set | For later encoder and joystick checks |
 
 ## Phase 1: full input and lighting breadboard
@@ -20,7 +20,7 @@ until USB recognition is proven on the actual ChatGPT Desktop build.
 | EC11 push encoder | 1 | Detent count and shaft length depend on the enclosure |
 | Two-axis joystick breakout | 1 | Spring-centered, two analog outputs; validate mechanics before PCB |
 | Addressable RGB breakout/strip | 20 pixels | Six Agent, six Command, eight perimeter pixels |
-| 1N4148W diodes | 16 | One per possible matrix position |
+| 1N4148 DO-35 diodes | 16 | Through-hole parts for the breadboard; final PCB uses SMD 1N4148W |
 | 10 kohm resistors | assorted | Pull-ups and bench configuration |
 | 100 nF and 10 uF capacitors | assorted | Local decoupling for breadboard checks |
 

@@ -1,0 +1,43 @@
+function,signal,gpio_or_net,notes
+Matrix row 0,ROW0,GPIO4,Active low scan
+Matrix row 1,ROW1,GPIO5,Active low scan
+Matrix row 2,ROW2,GPIO6,Active low scan
+Matrix row 3,ROW3,GPIO7,Active low scan
+Matrix column 0,COL0,GPIO8,Internal pull-up plus optional 10 kOhm footprint
+Matrix column 1,COL1,GPIO9,Internal pull-up plus optional 10 kOhm footprint
+Matrix column 2,COL2,GPIO10,Internal pull-up plus optional 10 kOhm footprint
+Matrix column 3,COL3,GPIO11,Internal pull-up plus optional 10 kOhm footprint
+Encoder phase A,ENC_A,GPIO12,Direct input with RC footprint
+Encoder phase B,ENC_B,GPIO13,Direct input with RC footprint
+Joystick X,JOY_X,GPIO1,ADC1 input with 100 nF footprint
+Joystick Y,JOY_Y,GPIO2,ADC1 input with 100 nF footprint
+Communication touch,COMM_TOUCH,GPIO14,Direct service control independent of matrix
+RGB data,RGB_DATA,GPIO15,Feeds 74AHCT1G125 then LED chain
+Charger status 1,CHG_STAT1,GPIO16,Open-drain input
+Fuel gauge SDA,I2C_SDA,GPIO17,4.7 kOhm pull-up to 3V3
+Fuel gauge SCL,I2C_SCL,GPIO18,4.7 kOhm pull-up to 3V3
+USB D-,USB_DN,GPIO19,90 Ohm differential pair
+USB D+,USB_DP,GPIO20,90 Ohm differential pair
+Charger status 2,CHG_STAT2,GPIO21,Open-drain input
+LED rail enable,LED_5V_EN,GPIO42,Low at reset; enables TPS61023
+UART RX,UART_RX,GPIO44,Service pads only
+UART TX,UART_TX,GPIO43,Service pads only
+Fuel alert,FUEL_ALRT,GPIO40,Open-drain wake source
+Optional PDM clock,MIC_CLK,GPIO47,DNP on Rev A
+Optional PDM data,MIC_DATA,GPIO48,DNP on Rev A
+Matrix R0C0,AGENT_1,ROW0/COL0,SW1 plus diode
+Matrix R0C1,AGENT_2,ROW0/COL1,SW2 plus diode
+Matrix R0C2,AGENT_3,ROW0/COL2,SW3 plus diode
+Matrix R0C3,AGENT_4,ROW0/COL3,SW4 plus diode
+Matrix R1C0,AGENT_5,ROW1/COL0,SW5 plus diode
+Matrix R1C1,AGENT_6,ROW1/COL1,SW6 plus diode
+Matrix R1C2,FAST,ROW1/COL2,SW7 plus diode
+Matrix R1C3,APPROVE,ROW1/COL3,SW8 plus diode
+Matrix R2C0,DECLINE,ROW2/COL0,SW9 plus diode
+Matrix R2C1,FORK,ROW2/COL1,SW10 plus diode
+Matrix R2C2,MIC_KEY,ROW2/COL2,SW11 plus diode
+Matrix R2C3,SEND,ROW2/COL3,SW12 plus diode
+Matrix R3C0,ENC_PUSH,ROW3/COL0,ENC1 switch plus diode
+Matrix R3C1,JOY_PUSH,ROW3/COL1,JOY1 center switch plus diode
+Matrix R3C2,SPARE_1,ROW3/COL2,DNP pads and diode footprint
+Matrix R3C3,SPARE_2,ROW3/COL3,DNP pads and diode footprint
